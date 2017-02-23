@@ -255,6 +255,7 @@ namespace NotificationHubAPIApp.Controllers
 
 			Console.WriteLine("The spreadsheet document has been created.\nPress a key.");
 			Console.ReadKey();
+			return "";
 
 		}
     }
