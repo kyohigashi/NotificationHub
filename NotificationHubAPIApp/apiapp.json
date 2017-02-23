@@ -10,5 +10,10 @@
     "endpoints": {
         "apiDefinition": "/swagger/docs/v1",
         "status": null
+    },
+    "cors": {
+        "allowedOrigins": [
+            "https://localhost:44300"
+        ]
     }
 }
