@@ -1,4 +1,4 @@
-# Azure Notification Hub API 
+# Azure Notification Hub API App
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
 ## Deploying ##
@@ -8,8 +8,6 @@ Click the "Deploy to Azure" button above.  You can create new resources or refer
  * Gateway (if you don't reference existing one)
  * API App (EventHubAPI)
  * API App Host (this is the site behind the api app that this github code deploys to)
-
-https://deploy.azure.com/?repository=#/form/setup
 
 ## API Documentation ##
 The app has actions to send notifications via the Azure Notification Hub SDK
@@ -30,4 +28,3 @@ Each action has the following inputs
 | Message | The message to send.  Make sure you format this as needed for the type of notification (XML, JSON, etc.) |
 
 The action will return a Notification Outcome object with details of the send.
-# NotificationHub
