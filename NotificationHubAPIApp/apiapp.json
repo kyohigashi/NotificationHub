@@ -8,7 +8,7 @@
     "summary": "",
     "author": "",
     "endpoints": {
-        "apiDefinition": "/swagger/apiDefinition.json",
+        "apiDefinition": "/swagger/docs/v1",
         "status": null
     },
     "cors": {
@@ -16,4 +16,5 @@
             "https://localhost:44300"
         ]
     }
+   
 }
