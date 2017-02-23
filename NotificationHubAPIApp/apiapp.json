@@ -4,7 +4,7 @@
     "namespace": "microsoft.com",
     "gateway": "2015-01-14",
     "version": "1.0.0",
-    "title": "NotificationHubAPIAppCLP",
+    "title": "NotificationHubAPIApp",
     "summary": "",
     "author": "",
     "endpoints": {
