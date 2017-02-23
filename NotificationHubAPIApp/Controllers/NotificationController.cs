@@ -1,4 +1,4 @@
-using Microsoft.ServiceBus.Notifications;
+using Microsoft.Azure.NotificationHubs;
 using Swashbuckle.Swagger.Annotations;
 using System;
 using System.Collections.Generic;
@@ -183,5 +183,34 @@ namespace NotificationHubAPIApp.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.BareMessage);
             }
         }
+
+		[HttpPost]
+		[SwaggerResponse(HttpStatusCode.OK, Type = typeof(NotificationOutcome))]
+		[SwaggerResponse(HttpStatusCode.BadRequest, Type = typeof(ConfigurationErrorsException))]
+		[Metadata("Send Message with device list (Apple and Google)")]
+		public async System.Threading.Tasks.Task<HttpResponseMessage> SendNotificationByDeviceList([Metadata("Connection String")]string connectionString, [Metadata("Hub Name")]string hubName, [Metadata("CSV Path")]string csvPath, [Metadata("Toast Tags")]string tags = null)
+		{
+			try
+			{
+				NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connectionString, hubName);
+
+				NotificationOutcome result;
+				if (!string.IsNullOrEmpty(tags))
+				{
+					
+					result = await hub.SendAppleNativeNotificationAsync("{}", tags);
+				}
+				else
+				{
+					result = await hub.SendAppleNativeNotificationAsync("{}");
+				}
+
+				return Request.CreateResponse<NotificationOutcome>(HttpStatusCode.OK, result);
+			}
+			catch (ConfigurationErrorsException ex)
+			{
+				return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.BareMessage);
+			}
+		}
     }
 }
